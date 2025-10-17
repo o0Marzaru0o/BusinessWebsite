@@ -37,9 +37,9 @@ header{
 nav ul{display:flex;gap:20px;list-style:none}
 nav a{color:var(--text);text-decoration:none;font-size:14px;transition:color .2s}
 nav a:hover,nav a.active{color:var(--accent2)}
-section{padding:100px 20px;max-width:900px;margin:0 auto;text-align:center}
-section h2{color:var(--accent);margin-bottom:16px;font-size:24px}
-section p{color:var(--muted);margin-bottom:12px}
+section{padding:100px 20px;max-width:900px;margin:0 auto;text-align:left}
+section h2{color:var(--accent);margin-bottom:16px;font-size:24px;text-align:center}
+section p{color:var(--muted);margin-bottom:12px;}
 
 /* Grid fix */
 .services-grid,.prices-grid{
@@ -94,6 +94,7 @@ section p{color:var(--muted);margin-bottom:12px}
   background:var(--card-back);
   color:var(--text);
   transform:rotateY(180deg);
+  text-align:left;
 }
 
 /* Hover Glow */
@@ -103,7 +104,13 @@ section p{color:var(--muted);margin-bottom:12px}
 }
 
 /* Bilder */
-.flip-card img{width:64px;height:64px;margin-bottom:12px}
+.flip-card img{
+  width:80px;
+  height:80px;
+  margin-bottom:12px;
+  border-radius:12px; /* jetzt rund wie die Karten */
+  object-fit:cover;
+}
 
 /* Kontakt & Footer */
 #contact button{
@@ -164,8 +171,8 @@ footer{
 <section id="services">
 <h2>Leistungen</h2>
 <div class="services-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3></div><div class="flip-card-back"><p>Beratung, Planung, Umsetzung </br></br> umfassende Unterstützung in allen IT-Themen für reibungslose Abläufe.</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support.png" alt="IT-Support"><h3>IT-Support</h3></div><div class="flip-card-back"><p>Schnelle und zuverlässige Hilfe bei technischen Problemen </br></br> Remote oder vor Ort.</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3></div><div class="flip-card-back"><p>Beratung, Planung, Umsetzung <br><br> umfassende Unterstützung in allen IT-Themen für reibungslose Abläufe.</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support.png" alt="IT-Support"><h3>IT-Support</h3></div><div class="flip-card-back"><p>Schnelle und zuverlässige Hilfe bei technischen Problemen <br><br> Remote oder vor Ort.</p></div></div></div>
 <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung.png" alt="Datenrettung"><h3>Datenrettung</h3></div><div class="flip-card-back"><p>Verlorene Daten können sicher wiederhergestellt werden, um wichtige Informationen zu bewahren.</p></div></div></div>
 <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="backuo.png" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3></div><div class="flip-card-back"><p>Automatisierte und sichere Datensicherungen für kontinuierlichen Schutz kritischer Daten.</p></div></div></div>
 <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="server.png" alt="Cloud & Server"><h3>Cloud & Server</h3></div><div class="flip-card-back"><p>Einrichtung, Wartung und Optimierung von Servern oder Cloud-Lösungen wie Office 365 für effiziente IT-Strukturen.</p></div></div></div>
@@ -176,12 +183,12 @@ footer{
 <section id="prices">
 <h2>Preisliste</h2>
 <div class="prices-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>IT-Dientsleistung</h3></div><div class="flip-card-back"><p>1 Stunde | 90 €</br></br>Abrechnung je angefangene 15 Minuten</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="anfahrt.png" alt="IT-Dienstleistungen"><h3>Anfahrt</h3></div><div class="flip-card-back"><p>Bis 10 km | Kostenlos</br></br>Bis 20 km | 40 € Pauschal</br></br>20 - 40 km | 1€ pro km</br></br>Ab 40 km | 1,50€ pro km</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>Datenrettung Prüfung</h3></div><div class="flip-card-back"><p>45 €</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>Einfache Datenrettung</h3></div><div class="flip-card-back"><p>150 - 300 €</br></br>Angebot nach Prüfung</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>Sonstige Leistungen</h3></div><div class="flip-card-back"><p>Sonstige Leistungen orientieren sich an dem Stundesatz oder werden gesondert vereinbart</p></div></div></div>  
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>Supportvertrag</h3></div><div class="flip-card-back"><p>Möglichkeit eines festen Vertrages mit garantierter Erreichbarkeit. Vereinbarte Stunden inkl., weitere Stunden vergünstigt.</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3></div><div class="flip-card-back"><p>1 Stunde | 90 €<br><br>Abrechnung je angefangene 15 Minuten</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="anfahrt.png" alt="Anfahrt"><h3>Anfahrt</h3></div><div class="flip-card-back"><p>Bis 10 km | Kostenlos<br><br>Bis 20 km | 40 € Pauschal<br><br>20 - 40 km | 1€ pro km<br><br>Ab 40 km | 1,50€ pro km</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3></div><div class="flip-card-back"><p>45 €</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3></div><div class="flip-card-back"><p>150 - 300 €<br><br>Angebot nach Prüfung</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3></div><div class="flip-card-back"><p>Sonstige Leistungen orientieren sich an dem Stundesatz oder werden gesondert vereinbart</p></div></div></div>  
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Supportvertrag"><h3>Supportvertrag</h3></div><div class="flip-card-back"><p>Möglichkeit eines festen Vertrages mit garantierter Erreichbarkeit. Vereinbarte Stunden inkl., weitere Stunden vergünstigt.</p></div></div></div>
 </div>
 </section>
 
@@ -195,11 +202,10 @@ footer{
 
   <p>Mir ist es wichtig, dass IT nicht kompliziert sein muss – egal ob für Privatkunden oder Unternehmen. Bei mir bekommst du kompetente Unterstützung, unkomplizierte Beratung und eine Portion Humor obendrauf.</p>
 
-  <p>Für meinen <strong>Lebenslauf und meine Skills</strong> kannst du gerne einen Blick auf meine LinkedIn-Seite werfen:</br> 
-    <a href="https://www.linkedin.com/in/marcel-bekropat-b42761247/" target="_blank" style="color:var(--accent2) rel="noopener noreferrer">Marcel Bekropat auf LinkedIn</a>
+  <p>Für meinen <strong>Lebenslauf und meine Skills</strong> kannst du gerne einen Blick auf meine LinkedIn-Seite werfen:<br> 
+    <a href="https://www.linkedin.com/in/marcel-bekropat-b42761247/" target="_blank" style="color:var(--accent2)" rel="noopener noreferrer">Marcel Bekropat auf LinkedIn</a>
   </p>
 </section>
-
 
 <section id="contact">
 <h2>Kontakt</h2>
@@ -225,21 +231,11 @@ footer{
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </section>  
-  
 <footer>© 2025 Marcel Bekropat | IT-Dienstleistungen</footer>
 
 <script>
 const navLinks=document.querySelectorAll('nav a');
-window.addEventListener('scroll',()=>{
-let fromTop=window.scrollY+120;
-navLinks.forEach(link=>{
-const section=document.querySelector(link.getAttribute('href'));
-if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
-navLinks.forEach(l=>l.classList.remove('active'));
-link.classList.add('active');
-}
-});
-});
+window.addEventListener('scroll',()=>{let fromTop=window.scrollY+120;navLinks.forEach(link=>{const section=document.querySelector(link.getAttribute('href'));if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){navLinks.forEach(l=>l.classList.remove('active'));link.classList.add('active');}});});
 </script>
 </body>
 </html>
