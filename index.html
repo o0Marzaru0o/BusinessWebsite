@@ -4,28 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Marcel Bekropat | IT-Dienstleistungen</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --accent:#7212ab;
-  --accent2:#ff9900;
-  --bg:#1f1f2a;
-  --card-back:#2a2a3a;
-  --text:#f2f2f5;
-  --muted:#b0b0c0;
+  --accent: #7212ab;
+  --accent2: #ff9900;
+  --accent-light: #8a2bc2;
+  --bg-dark: #1a1a26;
+  --bg-medium: #252533;
+  --card-back: #2a2a3a;
+  --text: #f2f2f5;
+  --muted: #a0a0b0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Roboto',system-ui,sans-serif;
-  background:var(--bg);
+  font-family:'Lato', system-ui, sans-serif;
+  background:var(--bg-dark);
   color:var(--text);
   line-height:1.6;
 }
 header{
   position:fixed;
   top:0;left:0;right:0;
-  background:rgba(26,26,37,.95);
+  background:rgba(26, 26, 38, 0.95);
   backdrop-filter:blur(10px);
   z-index:1000;
   display:flex;
@@ -35,119 +37,260 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 nav ul{display:flex;gap:20px;list-style:none}
-nav a{color:var(--text);text-decoration:none;font-size:14px;transition:color .2s}
+nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:700; transition:color .2s}
 nav a:hover,nav a.active{color:var(--accent2)}
-section{padding:100px 20px;max-width:900px;margin:0 auto;text-align:left}
-section h2{color:var(--accent);margin-bottom:16px;font-size:24px;text-align:center}
-section p{color:var(--muted);margin-bottom:12px;}
-
-/* Grid fix */
-.services-grid,.prices-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:24px;
-  margin-top:24px;
-  align-items:stretch;
-}
-
-/* Flip cards */
-.flip-card{
-  background:transparent;
-  perspective:1000px;
-  height:260px;
-}
-.flip-card-inner{
-  position:relative;
-  width:100%;
-  height:100%;
-  text-align:center;
-  transition:transform .6s;
-  transform-style:preserve-3d;
-  cursor:pointer;
-}
-.flip-card:hover .flip-card-inner,
-.flip-card-inner.active{
-  transform:rotateY(180deg);
-}
-
-/* Vorder- & Rückseite */
-.flip-card-front,
-.flip-card-back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  -webkit-backface-visibility:hidden;
-  backface-visibility:hidden;
-  border-radius:12px;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.05);
-  transition:box-shadow .3s, transform .3s;
-}
-
-/* Rückseite */
-.flip-card-back{
-  background:var(--card-back);
-  color:var(--text);
-  transform:rotateY(180deg);
+section{
+  padding:100px 20px;
+  margin:0 auto;
   text-align:left;
 }
+section h2{font-family:'Montserrat', sans-serif; color:var(--accent);margin-bottom:24px;font-size:32px;text-align:center;font-weight:700;}
+section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
 
-/* Hover Glow */
-.flip-card:hover .flip-card-front,
-.flip-card:hover .flip-card-back {
-  box-shadow:0 0 18px var(--accent2);
+/* NEUER HERO-BEREICH */
+#hero{
+  padding: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(114, 18, 171, 0.7), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+}
+#hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+}
+#hero img {
+  width: 500px;
+  max-width: 90%;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255, 153, 0, 0.5));
+}
+#hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+#hero p {
+  font-size: 20px;
+  color: #ddd;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Bilder */
+/* Grid für die Flip-Cards - ENDGÜLTIGE KORREKTUR */
+.services-grid,.prices-grid{
+  display: grid;
+  /* KORREKTUR: Feste Kartenbreite mit max-width und auto-fill */
+  grid-template-columns: repeat(auto-fill, 340px);
+  gap: 30px;
+  margin-top: 40px;
+  align-items: stretch;
+  /* KORREKTUR: Sorgt für Zentrierung des Grids */
+  justify-content: center;
+}
+
+/* KORREKTUR: Begrenzung auf 3 Spalten */
+@media (min-width: 1122px) {
+  .services-grid, .prices-grid {
+    grid-template-columns: repeat(3, 340px);
+  }
+}
+
+
+/* ÜBERARBEITETE FLIP-CARDS - FÜR KLICK */
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-inner.active {
+  transform: rotateY(180deg);
+}
+
+/* Positionierung von Vorder- und Rückseite */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.05);
+  transition: box-shadow 0.4s, transform 0.3s;
+}
+
+/* AKTUALISIERT: Glow-Effekt für Vorder- und Rückseite beim Hover */
+.flip-card:hover .flip-card-front,
+.flip-card:hover .flip-card-back {
+  box-shadow: 
+    0 0 25px rgba(255, 153, 0, 0.6),
+    0 0 50px rgba(114, 18, 171, 0.8),
+    0 0 75px rgba(114, 18, 171, 0.4);
+}
+
+/* Der "Hebe"-Effekt soll nur auf der Vorderseite sein */
+.flip-card:hover .flip-card-front {
+  transform: translateY(-5px);
+}
+
+
+.flip-card-back {
+  background-color: var(--card-back);
+  color: var(--text);
+  transform: rotateY(180deg);
+  text-align: left;
+  font-size: 16px;
+  padding: 30px;
+}
+
+/* Das "Klick-mich"-Icon - Gilt jetzt für beide Seiten */
+.flip-icon {
+  position: absolute;
+  bottom: 15px;
+  font-size: 24px;
+  color: var(--muted);
+  background: var(--card-back);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+}
+.flip-card:hover .flip-icon {
+  color: var(--accent2);
+  background: var(--bg-dark);
+}
+
+/* Spezifische Positionierung für Vorder- und Rückseite */
+.flip-card-front .flip-icon {
+  right: 15px;
+}
+.flip-card-back .flip-icon {
+  left: 15px;
+}
+
+
+/* Bilder in den Karten */
 .flip-card img{
-  width:240px;
-  height:135px;
-  margin-bottom:13px;
-  border-radius:13px; /* jetzt rund wie die Karten */
+  width:100%;
+  height:160px;
+  margin-bottom:15px;
+  border-radius:10px;
   object-fit:cover;
 }
 
 /* Kontakt & Footer */
+#contact{
+  background: var(--bg-medium);
+  border-radius: 15px;
+  padding: 40px;
+  margin-top: 40px;
+}
+#contact h2 { margin-top: 0; }
 #contact button{
   background:var(--accent2);
   color:white;
   border:none;
-  padding:10px 18px;
-  border-radius:6px;
-  font-size:15px;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:16px;
+  font-weight: 700;
   cursor:pointer;
-  transition:background .2s;
+  transition:background .3s, transform .2s;
 }
-#contact button:hover{background:#cc7a00}
+#contact button:hover{background:#cc7a00; transform: translateY(-2px);}
 footer{
   text-align:center;
   color:var(--muted);
   padding:40px 20px;
-  font-size:13px;
+  font-size:14px;
   border-top:1px solid rgba(255,255,255,.05);
+  background: var(--bg-medium);
+}
+
+/* "Über Mich" Sektion */
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#about img {
+  width:150px;
+  height:150px;
+  object-fit: cover;
+  border: 5px solid var(--accent);
+  margin-bottom: 25px;
+  transition: transform 0.3s ease;
+}
+#about img:hover {
+  transform: scale(1.05);
+}
+#about .content-wrapper {
+  max-width: 800px;
 }
 
 /* AGB Toggle */
-.toggle-section{cursor:pointer;color:var(--accent2);margin-top:10px}
+.toggle-section{cursor:pointer;color:var(--accent2);margin-top:15px; font-weight: 700;}
 .toggle-content{
   display:none;
-  margin-top:10px;
+  margin-top:15px;
   color:var(--muted);
   border-top:1px solid rgba(255,255,255,.1);
-  padding-top:10px;
+  padding-top:15px;
 }
 
-@media(max-width:600px){nav ul{gap:10px}}
+@media(max-width:768px){
+  #hero h1 { font-size: 36px; }
+  #hero p { font-size: 18px; }
+  section h2 { font-size: 28px; }
+  .flip-card { height: 280px; }
+}
 </style>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1132103455370691" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <header>
 <nav>
 <ul>
@@ -161,50 +304,48 @@ footer{
 </header>
 
 <section id="hero">
-<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
-<img src="LOGO.png" alt="Logo" style="width:500px;margin-bottom:20px">
-<h1>IT-Dienstleistungen für alle Bereiche – privat & geschäftlich</h1>
-<p>Beratung, Support, Netzwerke, Datenrettung und Cloud – zuverlässig, professionell und persönlich.</p>
-</div>
+  <div class="hero-content">
+    <img src="LOGO.png" alt="Logo Marcel Bekropat IT-Dienstleistungen">
+    <h1>IT-Dienstleistungen, die funktionieren.</h1>
+    <p>Professionelle Beratung, Support und Lösungen für Privat- und Geschäftskunden in und um Berlin.</p>
+  </div>
 </section>
 
 <section id="services">
-<h2>Leistungen</h2>
+<h2>Meine Leistungen</h2>
 <div class="services-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3></div><div class="flip-card-back"><p>Beratung, Planung, Umsetzung <br><br> umfassende Unterstützung in allen IT-Themen für reibungslose Abläufe.</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support.png" alt="IT-Support"><h3>IT-Support</h3></div><div class="flip-card-back"><p>Schnelle und zuverlässige Hilfe bei technischen Problemen <br><br> Remote oder vor Ort.</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung.png" alt="Datenrettung"><h3>Datenrettung</h3></div><div class="flip-card-back"><p>Verlorene Daten können sicher wiederhergestellt werden, um wichtige Informationen zu bewahren.</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="backuo.png" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3></div><div class="flip-card-back"><p>Automatisierte und sichere Datensicherungen für kontinuierlichen Schutz kritischer Daten.</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="server.png" alt="Cloud & Server"><h3>Cloud & Server</h3></div><div class="flip-card-back"><p>Einrichtung, Wartung und Optimierung von Servern oder Cloud-Lösungen wie Office 365 für effiziente IT-Strukturen.</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="domainsupport.png" alt="Web- & Domainsupport"><h3>Web- & Domainsupport</h3></div><div class="flip-card-back"><p>Unterstützung bei kleinen Webseiten, E-Mail-Systemen und Domains für einen professionellen Online-Auftritt.</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Von der Idee bis zur Umsetzung.</strong><br>Ich analysiere deine Bedürfnisse, entwerfe die perfekte Lösung und setze sie für dich um – damit dein Alltag oder dein Unternehmen reibungslos läuft.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1512941937269-3a3c5b6a9d2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT-Support"><h3>IT-Support</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Probleme? Ich löse sie.</strong><br>Schnelle und zuverlässige Hilfe bei Hardware und Software. Egal ob Laptop nicht startet oder Software streikt – Remote oder direkt bei dir vor Ort.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Datenrettung"><h3>Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine Daten sind nicht verloren.</strong><br>Ich analysiere den Schaden und rette deine wichtigen Dateien – von versehentlich gelöschten Dokumenten bis zu defekten Festplatten. Gib nicht zu früh auf!</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine digitale Zukunft ist sicher.</strong><br>Ich richte automatisierte und sichere Datensicherungen für dich ein. Schütze deine wichtigsten Erinnerungen und Geschäftsinhalte vor Datenverlust.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1554469384-e58e5504e9b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cloud & Server"><h3>Cloud & Server</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine IT, überall und jederzeit.</strong><br>Ich kümmere mich um die Einrichtung, Wartung und Optimierung deiner Server und Cloud-Lösungen wie Office 365, damit du von überall aus arbeiten kannst.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Web- & Domainsupport"><h3>Web- & Domainsupport</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Dein professioneller Auftritt im Netz.</strong><br>Ich unterstütze dich bei kleinen Webseiten, E-Mail-Systemen und Domains. Sorge dafür, dass deine Online-Präsenz reibungslos und professionell läuft.</p><span class="flip-icon">↻</span></div></div></div>
 </div>
 </section>
 
 <section id="prices">
-<h2>Preisliste</h2>
+<h2>Transparente Preise</h2>
 <div class="prices-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3></div><div class="flip-card-back"><p>1 Stunde | 90 €<br><br>Abrechnung je angefangene 15 Minuten</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="anfahrt.png" alt="Anfahrt"><h3>Anfahrt</h3></div><div class="flip-card-back"><p>Bis 10 km | Kostenlos<br><br>Bis 20 km | 40 € Pauschal<br><br>20 - 40 km | 1€ pro km<br><br>Ab 40 km | 1,50€ pro km</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3></div><div class="flip-card-back"><p>45 €</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3></div><div class="flip-card-back"><p>150 - 300 €<br><br>Angebot nach Prüfung</p></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3></div><div class="flip-card-back"><p>Sonstige Leistungen orientieren sich an dem Stundesatz oder werden gesondert vereinbart</p></div></div></div>  
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistung.png" alt="Supportvertrag"><h3>Supportvertrag</h3></div><div class="flip-card-back"><p>Möglichkeit eines festen Vertrages mit garantierter Erreichbarkeit. Vereinbarte Stunden inkl., weitere Stunden vergünstigt.</p></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>90 € / Stunde</strong><br><br>Abrechnung je angefangene 15 Minuten.<br><br><em>Dein Problem, meine volle Konzentration.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1445116572660-2360990971c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Anfahrt"><h3>Anfahrt</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Bis 10 km:</strong> Kostenlos<br><strong>Über 10 km bis 20 km:</strong> 40 € Pauschal<br><strong>Über 20 km bis 40 km:</strong> 40 € Pauschal + 1 € pro weiteren km<br><br><strong>Über 40 km:</strong> 60 € Pauschal + 1,50 € pro weiteren km<br><br><em>Fairness, auch auf der Strecke.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>45 € Festpreis</strong><br><br>Analyse und verbindliches Angebot.<br><br><em>Klarheit, bevor du dich entscheidest.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>150 € - 300 €</strong><br><br><em>Bei logischen Fehlern – keine mechanischen Reparaturen.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Individuelle Angebote</strong><br><br>Nach Stundensatz oder als Festpreis.<br><br><em>Für alles, was sonst noch ansteht.</em></p><span class="flip-icon">↻</span></div></div></div>  
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Supportvertrag"><h3>Supportvertrag</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Auf Anfrage</strong><br><br>Garantierte Erreichbarkeit und vereinbarte Stunden.<br><br><em>Deine IT, rundum sorglos.</em></p><span class="flip-icon">↻</span></div></div></div>
 </div>
 </section>
 
 <section id="about">
   <h2>Über mich</h2>
-  <img src="me.png" alt="Marcel" style="width:120px;border-radius:50%;margin-bottom:20px">
-
-  <p>Hey, ich bin Marcel! Geboren 1985 und seit Jahren leidenschaftlich in der IT unterwegs. Meine Reise begann mit der Ausbildung zum Fachinformatiker für Systemintegration bei der Deutschen Rentenversicherung. Danach habe ich im Apple Support gearbeitet und anschließend sechs Jahre Erfahrung in einem großen Hotel in Berlin gesammelt. Seit vier Jahren bin ich nun für einen Multi-Franchise-Konzern in der Hotelbranche tätig – IT ist also schon lange mein Ding, egal ob Hardware, Software oder Support.</p>
-
-  <p>Privat bin ich glücklich verheiratet (seit 2022) und seit 2025 stolzer Papa eines kleinen Jungen. Unser Zwergspitz sorgt zuhause zusätzlich für jede Menge Spaß und Chaos.</p>
-
-  <p>Mir ist es wichtig, dass IT nicht kompliziert sein muss – egal ob für Privatkunden oder Unternehmen. Bei mir bekommst du kompetente Unterstützung, unkomplizierte Beratung und eine Portion Humor obendrauf.</p>
-
-  <p>Für meinen <strong>Lebenslauf und meine Skills</strong> kannst du gerne einen Blick auf meine LinkedIn-Seite werfen:<br> 
-    <a href="https://www.linkedin.com/in/marcel-bekropat-b42761247/" target="_blank" style="color:var(--accent2)" rel="noopener noreferrer">Marcel Bekropat auf LinkedIn</a>
-  </p>
+  <div class="content-wrapper">
+    <img src="me.png" alt="Marcel Bekropat">
+    <p>Hey, ich bin Marcel! Geboren 1985 und seit Jahren leidenschaftlich in der IT unterwegs. Meine Reise begann mit der Ausbildung zum Fachinformatiker für Systemintegration bei der Deutschen Rentenversicherung. Danach habe ich im Apple Support gearbeitet und anschließend sechs Jahre Erfahrung in einem großen Hotel in Berlin gesammelt. Seit vier Jahren bin ich nun für einen Multi-Franchise-Konzern in der Hotelbranche tätig – IT ist also schon lange mein Ding, egal ob Hardware, Software oder Support.</p>
+    <p>Privat bin ich glücklich verheiratet (seit 2022) und seit 2025 stolzer Papa eines kleinen Jungen. Unser Zwergspitz sorgt zuhause zusätzlich für jede Menge Spaß und Chaos.</p>
+    <p>Mir ist es wichtig, dass IT nicht kompliziert sein muss – egal ob für Privatkunden oder Unternehmen. Bei mir bekommst du kompetente Unterstützung, unkomplizierte Beratung und eine Portion Humor obendrauf.</p>
+    <p>Für meinen <strong>Lebenslauf und meine Skills</strong> kannst du gerne einen Blick auf meine LinkedIn-Seite werfen:<br> 
+      <a href="https://www.linkedin.com/in/marcel-bekropat-b42761247/" target="_blank" style="color:var(--accent2)" rel="noopener noreferrer">Marcel Bekropat auf LinkedIn</a>
+    </p>
+  </div>
 </section>
 
 <section id="contact">
@@ -221,8 +362,6 @@ footer{
   </div>
 
   <div id="agb-content" class="toggle-content" style="text-align:left; margin-top:10px;">
-    
-    <!-- AGB -->
     <p><strong>AGBs:</strong></p>
     <hr style="border:0; border-top:1px solid var(--muted); margin:8px 0;">
     <p>
@@ -242,7 +381,6 @@ footer{
       Auf der Website können Anzeigen von Google AdSense geschaltet werden. Für die Einhaltung der Datenschutzbestimmungen seitens Google ist der Nutzer direkt verantwortlich. 
     </p>
 
-    <!-- Datenschutz -->
     <p><strong>Datenschutz:</strong></p>
     <hr style="border:0; border-top:1px solid var(--muted); margin:8px 0;">
     <p>
@@ -251,7 +389,6 @@ footer{
       Cookies oder Tracking-Tools werden nur minimal verwendet; Sie können der Nutzung jederzeit widersprechen.
     </p>
 
-    <!-- Impressum -->
     <p><strong>Impressum:</strong></p>
     <hr style="border:0; border-top:1px solid var(--muted); margin:8px 0;">
     <p>
@@ -276,27 +413,32 @@ footer{
   </div>
 </section>
 
-
-
-<section>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1132103455370691"
-     crossorigin="anonymous"></script>
-<!-- Werbung_1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1132103455370691"
-     data-ad-slot="5016707358"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</section>  
 <footer>© 2025 Marcel Bekropat | IT-Dienstleistungen</footer>
 
 <script>
+// Altes Skript für die Navigation
 const navLinks=document.querySelectorAll('nav a');
-window.addEventListener('scroll',()=>{let fromTop=window.scrollY+120;navLinks.forEach(link=>{const section=document.querySelector(link.getAttribute('href'));if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){navLinks.forEach(l=>l.classList.remove('active'));link.classList.add('active');}});});
+window.addEventListener('scroll',()=>{
+  let fromTop=window.scrollY+120;
+  navLinks.forEach(link=>{
+    const section=document.querySelector(link.getAttribute('href'));
+    if(section.offsetTop<=fromTop && section.offsetTop+section.offsetHeight>fromTop){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      link.classList.add('active');
+    }
+  });
+});
+
+// NEUES Skript für die Flip-Cards
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.flip-card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const inner = card.querySelector('.flip-card-inner');
+      inner.classList.toggle('active');
+    });
+  });
+});
 </script>
 </body>
 </html>
