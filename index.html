@@ -16,6 +16,7 @@
   --text: #f2f2f5;
   --muted: #a0a0b0;
   --text-light: #e0e0e0;
+  --hero-slogan-color: #f0f0f0; /* NEU: Spezielle, weichere Farbe für den Hero-Slogan */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -67,19 +68,20 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
   padding: 20px;
 }
 #hero img {
-  width: 750px; /* GEÄNDERT: 25% größer (600 * 1.25 = 750) */
+  width: 750px;
   max-width: 90%;
-  margin-bottom: 20px;
+  margin-bottom: 30px; /* Etwas mehr Abstand zum neuen Text */
   filter: drop-shadow(0 0 25px rgba(255, 153, 0, 0.7));
 }
 #hero h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 48px;
+  font-size: 52px; /* Etwas größer für den Slogan */
   font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--text-light);
+  margin-bottom: 15px; /* Abstand zum Untertext */
+  color: var(--hero-slogan-color); /* NEU: Spezielle Farbe */
 }
 #hero p {
+  font-family: 'Lato', sans-serif; /* Andere Schriftart für den Untertext */
   font-size: 20px;
   color: var(--muted);
   max-width: 600px;
@@ -199,7 +201,7 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
   height:160px;
   margin-bottom:15px;
   border-radius:10px;
-  object-fit:cover; /* ZURÜCKGEÄNDERT: Auf 'cover' */
+  object-fit:cover;
   background-color: var(--bg-dark);
 }
 
@@ -241,7 +243,7 @@ footer{
 #about img {
   width:150px;
   height:150px;
-  object-fit: cover; /* BEREITS 'cover', bleibt unverändert */
+  object-fit: cover;
   border: 5px solid var(--accent);
   margin-bottom: 25px;
   transition: transform 0.3s ease;
@@ -290,32 +292,32 @@ footer{
 <section id="hero">
   <div class="hero-content">
     <img src="LOGO.png" alt="Logo Marcel Bekropat IT-Dienstleistungen">
-    <h1>IT-Dienstleistungen, die funktionieren.</h1>
-    <p>Professionelle Beratung, Support und Lösungen für Privat- und Geschäftskunden in und um Berlin.</p>
+    <h1>Ihr Partner für digitale Lösungen.</h1>
+    <p>Professionelle Beratung, Support und Wartung<br>für Privat- und Geschäftskunden in und um Berlin.</p>
   </div>
 </section>
 
 <section id="services">
 <h2>Meine Leistungen</h2>
 <div class="services-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistungen_service.png" alt="IT-Dienstleistung"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Von der Idee bis zur Umsetzung.</strong><br>Ich analysiere deine Bedürfnisse, entwerfe die perfekte Lösung und setze sie für dich um – damit dein Alltag oder dein Unternehmen reibungslos läuft.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support_service.png" alt="IT-Support"><h3>IT-Support</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Probleme? Ich löse sie.</strong><br>Schnelle und zuverlässige Hilfe bei Hardware und Software. Egal ob Laptop nicht startet oder Software streikt – Remote oder direkt bei dir vor Ort.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_service.png" alt="Datenrettung"><h3>Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine Daten sind nicht verloren.</strong><br>Ich analysiere den Schaden und rette deine wichtigen Dateien – von versehentlich gelöschten Dokumenten bis zu defekten Festplatten. Gib nicht zu früh auf!</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="backups_service.png" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine digitale Zukunft ist sicher.</strong><br>Ich richte automatisierte und sichere Datensicherungen für dich ein. Schütze deine wichtigsten Erinnerungen und Geschäftsinhalte vor Datenverlust.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="server_cloud_service.png" alt="Cloud & Server"><h3>Cloud & Server</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine IT, überall und jederzeit.</strong><br>Ich kümmere mich um die Einrichtung, Wartung und Optimierung deiner Server und Cloud-Lösungen wie Office 365, damit du von überall aus arbeiten kannst.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="web_service.png" alt="Web- & Domainsupport"><h3>Web- & Domainsupport</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Dein professioneller Auftritt im Netz.</strong><br>Ich unterstütze dich bei kleinen Webseiten, E-Mail-Systemen und Domains. Sorge dafür, dass deine Online-Präsenz reibungslos und professionell läuft.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistungen_service.png" alt="IT-Dienstleistung"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li>✓ Analyse deiner Bedürfnisse</li><li>✓ Entwurf indivdueller Lösung</li><li>✓ Umsetzung von A bis Z</li><li>✓ Für Privat- & Geschäftskunden</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Von der Idee bis zur Umsetzung.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support_service.png" alt="IT-Support"><h3>IT-Support</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li>✓ Schnelle Hilfe</li><li>✓ Zuverlässige Lösungen</li><li>✓ Remote-Support möglich</li><li>✓ Vor-Ort-Service</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Probleme? Ich löse sie.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_service.png" alt="Datenrettung"><h3>Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li>✓ Analyse des Schadens</li><li>✓ Rettung wichtiger Dateien</li><li>✓ Von gelöschten Dokumenten</li><li>✓ Bis hin zu defekten Daten</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Deine Daten sind nicht verloren.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="backups_service.png" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li>✓ Automatisierte Sicherungen</li><li>✓ Schutz vor Datenverlust</li><li>✓ Für Erinnerungen & Geschäftsdaten</li><li>✓ Sorglos in die Zukunft</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Deine digitale Zukunft ist sicher.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="server_cloud_service.png" alt="Cloud & Server"><h3>Cloud & Server</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li>✓ Einrichtung & Wartung</li><li>✓ Optimierung deiner Systeme</li><li>✓ Office 365 & Co.</li><li>✓ Arbeiten von überall aus</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Deine IT, überall und jederzeit.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="web_service.png" alt="Web- & Domainsupport"><h3>Web- & Domainsupport</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li>✓ Unterstützung bei einfachen Webseiten</li><li>✓ E-Mail-Systeme einrichten</li><li>✓ Domain-Management</li><li>✓ Professioneller Auftritt</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Dein professioneller Auftritt im Netz.</em></p><span class="flip-icon">↻</span></div></div></div>
 </div>
 </section>
 
 <section id="prices">
 <h2>Transparente Preise</h2>
 <div class="prices-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistungen_preis.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>90 € / Stunde</strong><br><br>Abrechnung je angefangene 15 Minuten.<br><br><em>Dein Problem, meine volle Konzentration.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="anfahrt_preis.png" alt="Anfahrt"><h3>Anfahrt</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Bis 10 km:</strong> Kostenlos<br><br><strong>Über 10 km bis 20 km:</strong> 40 € Pauschal<br><br><strong>Über 20 km bis 40 km:</strong> 40 € Pauschal + 1 € pro weiteren km<br><br><strong>Über 40 km:</strong> 60 € Pauschal + 1,50 € pro weiteren km<br><br><em>Fairness, auch auf der Strecke.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_pruefung_preis.png" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>45 € Festpreis</strong><br><br>Analyse und verbindliches Angebot.<br><br><em>Klarheit, bevor du dich entscheidest.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_einfach_preis.png" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>150 € - 300 €</strong><br><br><em>Bei logischen Fehlern – keine mechanischen Reparaturen.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="sonstige_leistungen_preis.png" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Individuelle Angebote</strong><br><br>Nach Stundensatz oder als Festpreis.<br><br><em>Für alles, was sonst noch ansteht.</em></p><span class="flip-icon">↻</span></div></div></div>  
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="supportvertrag_preis.png" alt="Supportvertrag"><h3>Supportvertrag</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Auf Anfrage</strong><br><br>Garantierte Erreichbarkeit und vereinbarte Stunden.<br><br><em>Deine IT, rundum sorglos.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistungen_preis.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li><strong>90 € / Stunde</strong></li><li>Abrechnung je angefangene 15 Min.</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Dein Problem, meine volle Konzentration.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="anfahrt_preis.png" alt="Anfahrt"><h3>Anfahrt</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li><strong>Bis 10 km:</strong> Kostenlos</li><li><strong>10 - 20 km:</strong> 40 € Pauschal</li><li><strong>20 - 40 km:</strong> 40 € + 1 €/km (über 20)</li><li><strong>Über 40 km:</strong> 60 € + 1,50 €/km (über 40)</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Fairness, auch auf der Strecke.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_pruefung_preis.png" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li><strong>45 € Festpreis</strong></li><li>Analyse & verbindliches Angebot</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Klarheit, bevor du dich entscheidest.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="einfache_datenrettung_preis.png" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li><strong>150 € - 300 €</strong></li><li>Bei logischen Fehlern</li><li>Keine mechanischen Reparaturen</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Ich rette, was zu retten ist.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="sonstige_leistungen_preis.png" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li><strong>Individuelle Angebote</strong></li><li>Nach Stundensatz oder Festpreis</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Für alles, was sonst noch ansteht.</em></p><span class="flip-icon">↻</span></div></div></div>  
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support_vertrag_preis.png" alt="Supportvertrag"><h3>Supportvertrag</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><ul style="list-style-type: none; padding-left: 0; text-align: left;"><li><strong>Preis auf Anfrage</strong></li><li> ✓ Garantierte Erreichbarkeit</li><li>✓ Stunden inklusive</li><li>✓ Vergünstigte Zusatzstunden</li><li>✓ Flexibel & verhandelbar</li></ul><p style="text-align:center; margin-top: 15px; font-style: italic; color: var(--muted);"><em>Deine IT, immer in guten Händen.</em></p><span class="flip-icon">↻</span></div></div></div>
 </div>
 </section>
 
