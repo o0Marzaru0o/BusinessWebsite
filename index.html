@@ -15,19 +15,20 @@
   --card-back: #2a2a3a;
   --text: #f2f2f5;
   --muted: #a0a0b0;
+  --text-light: #e0e0e0;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
   font-family:'Lato', system-ui, sans-serif;
   background:var(--bg-dark);
-  color:var(--text);
+  color:var(--text-light);
   line-height:1.6;
 }
 header{
   position:fixed;
   top:0;left:0;right:0;
-  background:rgba(26, 26, 38, 0.95);
+  background:linear-gradient(135deg, var(--bg-dark) 0%, #2a2a3a 100%);
   backdrop-filter:blur(10px);
   z-index:1000;
   display:flex;
@@ -37,7 +38,7 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 nav ul{display:flex;gap:20px;list-style:none}
-nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:700; transition:color .2s}
+nav a{color:var(--text-light); text-decoration:none;font-size:14px;font-weight:700; transition:color .2s}
 nav a:hover,nav a.active{color:var(--accent2)}
 section{
   padding:100px 20px;
@@ -47,7 +48,7 @@ section{
 section h2{font-family:'Montserrat', sans-serif; color:var(--accent);margin-bottom:24px;font-size:32px;text-align:center;font-weight:700;}
 section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
 
-/* NEUER HERO-BEREICH */
+/* ÜBERARBEITETER HERO-BEREICH */
 #hero{
   padding: 0;
   max-width: 100%;
@@ -57,20 +58,8 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
   align-items: center;
   text-align: center;
   position: relative;
-  background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #2a2a3a 100%);
   color: white;
-}
-#hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(114, 18, 171, 0.7), rgba(0, 0, 0, 0.8));
-  z-index: 1;
 }
 #hero .hero-content {
   position: relative;
@@ -78,44 +67,40 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
   padding: 20px;
 }
 #hero img {
-  width: 500px;
+  width: 750px; /* GEÄNDERT: 25% größer (600 * 1.25 = 750) */
   max-width: 90%;
   margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px rgba(255, 153, 0, 0.5));
+  filter: drop-shadow(0 0 25px rgba(255, 153, 0, 0.7));
 }
 #hero h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #fff;
+  color: var(--text-light);
 }
 #hero p {
   font-size: 20px;
-  color: #ddd;
+  color: var(--muted);
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Grid für die Flip-Cards - ENDGÜLTIGE KORREKTUR */
+/* Grid für die Flip-Cards */
 .services-grid,.prices-grid{
   display: grid;
-  /* KORREKTUR: Feste Kartenbreite mit max-width und auto-fill */
   grid-template-columns: repeat(auto-fill, 340px);
   gap: 30px;
   margin-top: 40px;
   align-items: stretch;
-  /* KORREKTUR: Sorgt für Zentrierung des Grids */
   justify-content: center;
 }
 
-/* KORREKTUR: Begrenzung auf 3 Spalten */
 @media (min-width: 1122px) {
   .services-grid, .prices-grid {
     grid-template-columns: repeat(3, 340px);
   }
 }
-
 
 /* ÜBERARBEITETE FLIP-CARDS - FÜR KLICK */
 .flip-card {
@@ -160,7 +145,7 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
 /* AKTUALISIERT: Glow-Effekt für Vorder- und Rückseite beim Hover */
 .flip-card:hover .flip-card-front,
 .flip-card:hover .flip-card-back {
-  box-shadow: 
+  box-shadow:
     0 0 25px rgba(255, 153, 0, 0.6),
     0 0 50px rgba(114, 18, 171, 0.8),
     0 0 75px rgba(114, 18, 171, 0.4);
@@ -171,10 +156,9 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
   transform: translateY(-5px);
 }
 
-
 .flip-card-back {
   background-color: var(--card-back);
-  color: var(--text);
+  color: var(--text-light);
   transform: rotateY(180deg);
   text-align: left;
   font-size: 16px;
@@ -209,19 +193,19 @@ section p{color:var(--muted);margin-bottom:16px; font-size: 17px;}
   left: 15px;
 }
 
-
 /* Bilder in den Karten */
 .flip-card img{
   width:100%;
   height:160px;
   margin-bottom:15px;
   border-radius:10px;
-  object-fit:cover;
+  object-fit:cover; /* ZURÜCKGEÄNDERT: Auf 'cover' */
+  background-color: var(--bg-dark);
 }
 
 /* Kontakt & Footer */
 #contact{
-  background: var(--bg-medium);
+  background: linear-gradient(135deg, var(--bg-medium) 0%, #333340 100%);
   border-radius: 15px;
   padding: 40px;
   margin-top: 40px;
@@ -245,7 +229,7 @@ footer{
   padding:40px 20px;
   font-size:14px;
   border-top:1px solid rgba(255,255,255,.05);
-  background: var(--bg-medium);
+  background: linear-gradient(135deg, var(--bg-medium) 0%, #333340 100%);
 }
 
 /* "Über Mich" Sektion */
@@ -257,7 +241,7 @@ footer{
 #about img {
   width:150px;
   height:150px;
-  object-fit: cover;
+  object-fit: cover; /* BEREITS 'cover', bleibt unverändert */
   border: 5px solid var(--accent);
   margin-bottom: 25px;
   transition: transform 0.3s ease;
@@ -314,24 +298,24 @@ footer{
 <section id="services">
 <h2>Meine Leistungen</h2>
 <div class="services-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Von der Idee bis zur Umsetzung.</strong><br>Ich analysiere deine Bedürfnisse, entwerfe die perfekte Lösung und setze sie für dich um – damit dein Alltag oder dein Unternehmen reibungslos läuft.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1512941937269-3a3c5b6a9d2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT-Support"><h3>IT-Support</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Probleme? Ich löse sie.</strong><br>Schnelle und zuverlässige Hilfe bei Hardware und Software. Egal ob Laptop nicht startet oder Software streikt – Remote oder direkt bei dir vor Ort.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Datenrettung"><h3>Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine Daten sind nicht verloren.</strong><br>Ich analysiere den Schaden und rette deine wichtigen Dateien – von versehentlich gelöschten Dokumenten bis zu defekten Festplatten. Gib nicht zu früh auf!</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine digitale Zukunft ist sicher.</strong><br>Ich richte automatisierte und sichere Datensicherungen für dich ein. Schütze deine wichtigsten Erinnerungen und Geschäftsinhalte vor Datenverlust.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1554469384-e58e5504e9b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Cloud & Server"><h3>Cloud & Server</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine IT, überall und jederzeit.</strong><br>Ich kümmere mich um die Einrichtung, Wartung und Optimierung deiner Server und Cloud-Lösungen wie Office 365, damit du von überall aus arbeiten kannst.</p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Web- & Domainsupport"><h3>Web- & Domainsupport</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Dein professioneller Auftritt im Netz.</strong><br>Ich unterstütze dich bei kleinen Webseiten, E-Mail-Systemen und Domains. Sorge dafür, dass deine Online-Präsenz reibungslos und professionell läuft.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistungen_service.png" alt="IT-Dienstleistung"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Von der Idee bis zur Umsetzung.</strong><br>Ich analysiere deine Bedürfnisse, entwerfe die perfekte Lösung und setze sie für dich um – damit dein Alltag oder dein Unternehmen reibungslos läuft.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="support_service.png" alt="IT-Support"><h3>IT-Support</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Probleme? Ich löse sie.</strong><br>Schnelle und zuverlässige Hilfe bei Hardware und Software. Egal ob Laptop nicht startet oder Software streikt – Remote oder direkt bei dir vor Ort.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_service.png" alt="Datenrettung"><h3>Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine Daten sind nicht verloren.</strong><br>Ich analysiere den Schaden und rette deine wichtigen Dateien – von versehentlich gelöschten Dokumenten bis zu defekten Festplatten. Gib nicht zu früh auf!</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="backups_service.png" alt="Backup-Lösungen"><h3>Backup-Lösungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine digitale Zukunft ist sicher.</strong><br>Ich richte automatisierte und sichere Datensicherungen für dich ein. Schütze deine wichtigsten Erinnerungen und Geschäftsinhalte vor Datenverlust.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="server_cloud_service.png" alt="Cloud & Server"><h3>Cloud & Server</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Deine IT, überall und jederzeit.</strong><br>Ich kümmere mich um die Einrichtung, Wartung und Optimierung deiner Server und Cloud-Lösungen wie Office 365, damit du von überall aus arbeiten kannst.</p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="web_service.png" alt="Web- & Domainsupport"><h3>Web- & Domainsupport</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Dein professioneller Auftritt im Netz.</strong><br>Ich unterstütze dich bei kleinen Webseiten, E-Mail-Systemen und Domains. Sorge dafür, dass deine Online-Präsenz reibungslos und professionell läuft.</p><span class="flip-icon">↻</span></div></div></div>
 </div>
 </section>
 
 <section id="prices">
 <h2>Transparente Preise</h2>
 <div class="prices-grid">
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>90 € / Stunde</strong><br><br>Abrechnung je angefangene 15 Minuten.<br><br><em>Dein Problem, meine volle Konzentration.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1445116572660-2360990971c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Anfahrt"><h3>Anfahrt</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Bis 10 km:</strong> Kostenlos<br><strong>Über 10 km bis 20 km:</strong> 40 € Pauschal<br><strong>Über 20 km bis 40 km:</strong> 40 € Pauschal + 1 € pro weiteren km<br><br><strong>Über 40 km:</strong> 60 € Pauschal + 1,50 € pro weiteren km<br><br><em>Fairness, auch auf der Strecke.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>45 € Festpreis</strong><br><br>Analyse und verbindliches Angebot.<br><br><em>Klarheit, bevor du dich entscheidest.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>150 € - 300 €</strong><br><br><em>Bei logischen Fehlern – keine mechanischen Reparaturen.</em></p><span class="flip-icon">↻</span></div></div></div>
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Individuelle Angebote</strong><br><br>Nach Stundensatz oder als Festpreis.<br><br><em>Für alles, was sonst noch ansteht.</em></p><span class="flip-icon">↻</span></div></div></div>  
-<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Supportvertrag"><h3>Supportvertrag</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Auf Anfrage</strong><br><br>Garantierte Erreichbarkeit und vereinbarte Stunden.<br><br><em>Deine IT, rundum sorglos.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="dienstleistungen_preis.png" alt="IT-Dienstleistungen"><h3>IT-Dienstleistung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>90 € / Stunde</strong><br><br>Abrechnung je angefangene 15 Minuten.<br><br><em>Dein Problem, meine volle Konzentration.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="anfahrt_preis.png" alt="Anfahrt"><h3>Anfahrt</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Bis 10 km:</strong> Kostenlos<br><br><strong>Über 10 km bis 20 km:</strong> 40 € Pauschal<br><br><strong>Über 20 km bis 40 km:</strong> 40 € Pauschal + 1 € pro weiteren km<br><br><strong>Über 40 km:</strong> 60 € Pauschal + 1,50 € pro weiteren km<br><br><em>Fairness, auch auf der Strecke.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_pruefung_preis.png" alt="Datenrettung Prüfung"><h3>Datenrettung Prüfung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>45 € Festpreis</strong><br><br>Analyse und verbindliches Angebot.<br><br><em>Klarheit, bevor du dich entscheidest.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="datenrettung_einfach_preis.png" alt="Einfache Datenrettung"><h3>Einfache Datenrettung</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>150 € - 300 €</strong><br><br><em>Bei logischen Fehlern – keine mechanischen Reparaturen.</em></p><span class="flip-icon">↻</span></div></div></div>
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="sonstige_leistungen_preis.png" alt="Sonstige Leistungen"><h3>Sonstige Leistungen</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Individuelle Angebote</strong><br><br>Nach Stundensatz oder als Festpreis.<br><br><em>Für alles, was sonst noch ansteht.</em></p><span class="flip-icon">↻</span></div></div></div>  
+<div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><img src="supportvertrag_preis.png" alt="Supportvertrag"><h3>Supportvertrag</h3><span class="flip-icon">↻</span></div><div class="flip-card-back"><p><strong>Auf Anfrage</strong><br><br>Garantierte Erreichbarkeit und vereinbarte Stunden.<br><br><em>Deine IT, rundum sorglos.</em></p><span class="flip-icon">↻</span></div></div></div>
 </div>
 </section>
 
